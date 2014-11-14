@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:tr="http://myfaces.apache.org/trinidad"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>    
+        <ui:composition template="/WEB-INF/templates/default.xhtml">
+            <ui:define name="content">
+                <h:form>        
+                    <tr:navigationPane hint="bar">
+                        <tr:commandNavigationItem immediate="true" text="Nav 1" action="${userPreferencesBean.save()}"/>
+                        <tr:commandNavigationItem immediate="true" text="Nav 2" action="${userPreferencesBean.save()}"/>
+                        <tr:commandNavigationItem immediate="true" text="Nav 2" action="${userPreferencesBean.save()}"/>
+                    </tr:navigationPane>
+                    <tr:panelFormLayout>
+                        <h:outputLabel value="#{msg['mytasklist.title']}" for="events" />
+                        <tr:table value="#{myTaskList.myTasks}" var="task"
+                                  horizontalGridVisible="true"
+                                  verticalGridVisible="true" binding="${myTaskList.myTaskBinding}"
+                                  selectionListener="${myTaskList.changeSelected}"
+                                  emptyText="No tasks available" rows="6" id="task">
+                            <tr:column>
+                                <f:facet name="header">
+                                    <tr:outputText value="#{msg['mytasklist.task.id']}"/>
+                                </f:facet>
+                                <tr:outputText value="#{task.id}"/>
+                            </tr:column>
+                            <tr:column>
+                                <f:facet name="header">
+                                    <tr:outputText value="#{msg['mytasklist.task.title']}"/>
+                                </f:facet>
+                                <tr:outputText value="#{task.title}"/>
+                            </tr:column>
+                            <tr:column sortProperty="task.dueDate">
+                                <f:facet name="header">
+                                    <tr:outputText value="#{msg['mytasklist.task.duedate']}"/>
+                                </f:facet>
+                                <tr:outputText value="#{task.dueDate}"/>
+                            </tr:column>
+                            <tr:column>
+                                <f:facet name="header">
+                                    <tr:outputText value="#{msg['mytasklist.task.assignee']}"/>
+                                </f:facet>
+                                <tr:outputText value="#{task.assignee}"/>
+                            </tr:column>
+                        </tr:table>
+
+                        <f:facet name="footer">
+                            <tr:commandButton text="New Task"
+                                              partialSubmit="true"
+                                              useWindow="false"
+                                              action="dialog:newTask"/>
+                        </f:facet>
+                    </tr:panelFormLayout>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

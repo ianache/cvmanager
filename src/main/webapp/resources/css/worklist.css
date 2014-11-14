@@ -1,0 +1,6 @@
+.AFDarkForeground:alias {color:#035D5C;}
+.AFDarkBackground:alias {background-color:Purple;}
+af|panelTabbed::orientation-top
+{
+    border-bottom: 3px solid black;
+}
