@@ -1,0 +1,51 @@
+<plugin>
+                <!-- http://www.hascode.com/2013/05/continuous-deployment-using-glassfish-jenkins-maven-and-git/ -->
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.10</version>
+                <configuration>
+                    <container>
+                        <!-- valores validos: http://cargo.codehaus.org/Glassfish+3.x -->
+                        <containerId>glassfish3x</containerId>
+                        <type>remote</type>
+                    </container>
+                    
+                    <configuration>
+                        <!-- existing, runtime, ... -->
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.remote.username>${web.host.username}</cargo.remote.username>
+                            <cargo.remote.password>${web.host.password}</cargo.remote.password>
+                            <cargo.hostname>${web.host.name}</cargo.hostname>
+                            <cargo.glassfish.admin.port>${web.host.admin.port}</cargo.glassfish.admin.port>
+                        </properties>
+                    </configuration>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>redeploy</goal>
+                        </goals>
+                        
+                        <configuration>
+                            <deployables>
+                                <deployable>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <type>war</type>
+                                </deployable>
+                            </deployables>
+                        </configuration>                        
+                    </execution>
+                </executions>
+                
+                <dependencies>
+                    <dependency>
+                        <groupId>org.glassfish.deployment</groupId>
+                        <artifactId>deployment-client</artifactId>
+                        <version>3.1.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
