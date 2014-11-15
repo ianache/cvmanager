@@ -1,4 +1,4 @@
-package com.innovaswc.bpm.btm.worklist.beans;
+package pe.edu.upc.evolucion.cvmanager.utils;
 
 import javax.faces.context.FacesContext;
 import org.springframework.beans.BeansException;

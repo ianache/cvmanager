@@ -9,16 +9,19 @@
     <h:body>    
         <h:form>
             <tr:panelFormLayout labelAlignment="start">
-                <tr:inputText label="Title:" 
-                              value="${userPreferencesBean.currentEvent.title}" 
-                              id="title"/>
-                <tr:inputDate label="From Date:" value="${userPreferencesBean.currentEvent.fromDate}"
+                <tr:inputText label="Project Name:" 
+                              value="${myExperience.current.name}" 
+                              id="name"/>
+                <tr:inputDate label="From Date:" value="${myExperience.current.fromDate}"
                               id="fromDate" />
-                <tr:inputDate label="Thru Date:" value="${userPreferencesBean.currentEvent.thruDate}"
+                <tr:inputDate label="Thru Date:" value="${myExperience.current.thruDate}"
                               id="thruDate" />
+                <tr:inputText label="Client Name:" 
+                              value="${myExperience.current.clientName}" 
+                              id="clientName"/>
                 <f:facet name="footer">
                     <tr:panelButtonBar>
-                        <h:commandButton action="${userPreferencesBean.newEvent}"/>                       
+                        <h:commandButton action="${myExperience.saveNew}"/>                       
                     </tr:panelButtonBar> 
                 </f:facet>
             </tr:panelFormLayout>            

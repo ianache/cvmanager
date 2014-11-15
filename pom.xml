@@ -14,10 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.bom.version>4.1.1.RELEASE</spring.bom.version>
         <slf4j.version>1.7.7</slf4j.version>
-		<web.host.username>10.0.0.51</web.host.username>
-		<web.host.username>admin</web.host.username>
-		<web.host.password>welcome1</web.host.password>
-		<web.host.admin.port>4848</web.host.admin.port>		
+        <web.host.username>10.0.0.51</web.host.username>
+        <web.host.username>admin</web.host.username>
+        <web.host.password>welcome1</web.host.password>
+        <web.host.admin.port>4848</web.host.admin.port>		
     </properties>
     
     <dependencyManagement>
@@ -98,18 +98,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.14.8</version>
-        </dependency>
-        <dependency>
-            <groupId>pe.edu.upc.evolucion.bpm</groupId>
-            <artifactId>worklist-ejb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <classifier>client</classifier>
-            <exclusions>
-                <exclusion>
-                    <artifactId>worklist-dac</artifactId>
-                    <groupId>pe.edu.upc.evolucion.bpm</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
     

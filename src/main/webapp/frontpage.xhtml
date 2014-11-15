@@ -10,12 +10,12 @@
             <ui:define name="content">
                 <h:form>        
                     <tr:navigationPane hint="bar">
-                        <tr:commandNavigationItem immediate="true" text="Nav 1" action="${userPreferencesBean.save()}"/>
-                        <tr:commandNavigationItem immediate="true" text="Nav 2" action="${userPreferencesBean.save()}"/>
-                        <tr:commandNavigationItem immediate="true" text="Nav 2" action="${userPreferencesBean.save()}"/>
+                        <tr:commandNavigationItem immediate="true" text="My Experience" action="myExperience"/>
+                        <tr:commandNavigationItem immediate="true" text="Find People" action="findPeople"/>
+                        <tr:commandNavigationItem immediate="true" text="Opportunities" action="findOpportunities"/>
                     </tr:navigationPane>
                     <tr:panelFormLayout>
-                        <h:outputLabel value="#{msg['mytasklist.title']}" for="events" />
+                        <!--h:outputLabel value="#{msg['mytasklist.title']}" for="events" />
                         <tr:table value="#{myTaskList.myTasks}" var="task"
                                   horizontalGridVisible="true"
                                   verticalGridVisible="true" binding="${myTaskList.myTaskBinding}"
@@ -53,7 +53,7 @@
                                               useWindow="false"
                                               action="dialog:newTask"/>
                         </f:facet>
-                    </tr:panelFormLayout>
+                    </tr:panelFormLayout-->
                 </h:form>
             </ui:define>
         </ui:composition>
