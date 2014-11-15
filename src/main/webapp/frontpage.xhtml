@@ -15,45 +15,44 @@
                         <tr:commandNavigationItem immediate="true" text="Opportunities" action="findOpportunities"/>
                     </tr:navigationPane>
                     <tr:panelFormLayout>
-                        <!--h:outputLabel value="#{msg['mytasklist.title']}" for="events" />
-                        <tr:table value="#{myTaskList.myTasks}" var="task"
+                        <h:outputLabel value="#{msg['myexperience.title']}" for="events" />
+                        <tr:table value="#{myExperience.myProjects}" var="prj"
                                   horizontalGridVisible="true"
-                                  verticalGridVisible="true" binding="${myTaskList.myTaskBinding}"
-                                  selectionListener="${myTaskList.changeSelected}"
-                                  emptyText="No tasks available" rows="6" id="task">
+                                  verticalGridVisible="true"
+                                  emptyText="No experiences available" rows="6" id="project">
                             <tr:column>
                                 <f:facet name="header">
-                                    <tr:outputText value="#{msg['mytasklist.task.id']}"/>
+                                    <tr:outputText value="#{msg['myexperience.project.name']}"/>
                                 </f:facet>
-                                <tr:outputText value="#{task.id}"/>
+                                <tr:outputText value="#{prj.name}"/>
                             </tr:column>
                             <tr:column>
                                 <f:facet name="header">
-                                    <tr:outputText value="#{msg['mytasklist.task.title']}"/>
+                                    <tr:outputText value="#{msg['myexperience.project.fromdate']}"/>
                                 </f:facet>
-                                <tr:outputText value="#{task.title}"/>
-                            </tr:column>
-                            <tr:column sortProperty="task.dueDate">
-                                <f:facet name="header">
-                                    <tr:outputText value="#{msg['mytasklist.task.duedate']}"/>
-                                </f:facet>
-                                <tr:outputText value="#{task.dueDate}"/>
+                                <tr:outputText value="#{prj.fromDate}"/>
                             </tr:column>
                             <tr:column>
                                 <f:facet name="header">
-                                    <tr:outputText value="#{msg['mytasklist.task.assignee']}"/>
+                                    <tr:outputText value="#{msg['myexperience.project.thrudate']}"/>
                                 </f:facet>
-                                <tr:outputText value="#{task.assignee}"/>
+                                <tr:outputText value="#{prj.thruDate}"/>
+                            </tr:column>
+                            <tr:column>
+                                <f:facet name="header">
+                                    <tr:outputText value="#{msg['myexperience.project.clientname']}"/>
+                                </f:facet>
+                                <tr:outputText value="#{prj.clientName}"/>
                             </tr:column>
                         </tr:table>
 
-                        <f:facet name="footer">
+                        <!--f:facet name="footer">
                             <tr:commandButton text="New Task"
                                               partialSubmit="true"
                                               useWindow="false"
                                               action="dialog:newTask"/>
-                        </f:facet>
-                    </tr:panelFormLayout-->
+                        </f:facet-->
+                    </tr:panelFormLayout>
                 </h:form>
             </ui:define>
         </ui:composition>
