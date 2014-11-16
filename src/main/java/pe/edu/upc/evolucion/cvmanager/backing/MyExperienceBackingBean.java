@@ -1,8 +1,10 @@
 package pe.edu.upc.evolucion.cvmanager.backing;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import pe.edu.upc.evolucion.cvmanager.backing.beans.ProjectBean;
@@ -11,8 +13,11 @@ import pe.edu.upc.evolucion.cvmanager.backing.beans.ProjectBean;
  *
  * @author USUARIO
  */
-@ManagedBean(name = "myExperience")
-public class MyExperienceBackingBean {
+@Named("myExperience")
+@SessionScoped
+//@ManagedBean(name = "myExperience")
+//@SessionScoped
+public class MyExperienceBackingBean implements Serializable {
 
     private @Getter @Setter List<ProjectBean> myProjects = new ArrayList<ProjectBean>();
     private @Getter @Setter ProjectBean current = new ProjectBean();
